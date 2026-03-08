@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exoplanet Transit Calculator</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.browser.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Exoplanet Transit Calculator</h1>
+    <p class="subtitle">Find the next observable transit from your location</p>
+
+    <h2>Ephemeris</h2>
+    <div class="card">
+      <div class="grid">
+        <div>
+          <label>Reference mid-transit (BJD_TDB)</label>
+          <input type="text" id="t0" value="2457650.409087" />
+        </div>
+        <div>
+          <label>Orbital period (days)</label>
+          <input type="text" id="period" value="0.813474057" />
+        </div>
+        <div>
+          <label>Transit duration (hours)</label>
+          <input type="text" id="duration" value="1.23" />
+          <div class="hint">Total duration from ingress to egress</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Target Star Coordinates</h2>
+    <div class="card">
+      <div class="grid">
+        <div>
+          <label>Right Ascension</label>
+          <input type="text" id="ra" value="10:19:38.0089" />
+          <div class="hint">HH:MM:SS.ss or decimal hours (e.g. 12.2244)</div>
+        </div>
+        <div>
+          <label>Declination</label>
+          <input type="text" id="dec" value="-09:48:22.603" />
+          <div class="hint">DD:MM:SS.ss or decimal degrees (e.g. 23.0557)</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Observer Location</h2>
+    <div class="card">
+      <div class="grid">
+        <div>
+          <label>Latitude (°N)</label>
+          <input type="text" id="lat" value="22.99" />
+        </div>
+        <div>
+          <label>Longitude (°E)</label>
+          <input type="text" id="lon" value="72.62" />
+        </div>
+        <div>
+          <label>Elevation (m)</label>
+          <input type="text" id="elev" value="50" />
+        </div>
+        <div>
+          <label>Timezone</label>
+          <select id="tz">
+            <option value="Asia/Kolkata" selected>IST (Asia/Kolkata)</option>
+            <option value="America/New_York">EST (America/New_York)</option>
+            <option value="America/Chicago">CST (America/Chicago)</option>
+            <option value="America/Denver">MST (America/Denver)</option>
+            <option value="America/Los_Angeles">PST (America/Los_Angeles)</option>
+            <option value="Europe/London">GMT (Europe/London)</option>
+            <option value="Europe/Berlin">CET (Europe/Berlin)</option>
+            <option value="Asia/Tokyo">JST (Asia/Tokyo)</option>
+            <option value="Australia/Sydney">AEST (Australia/Sydney)</option>
+            <option value="UTC">UTC</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn btn-location" onclick="detectLocation()">Use My Location</button>
+    </div>
+
+    <h2>Observing Constraints</h2>
+    <div class="card">
+      <div class="grid">
+        <div>
+          <label>Minimum target altitude (°)</label>
+          <input type="text" id="minAlt" value="30" />
+        </div>
+        <div>
+          <label>Sun altitude limit (°, e.g. -12)</label>
+          <input type="text" id="sunAlt" value="-12" />
+        </div>
+        <div>
+          <label>Baseline before/after transit (min)</label>
+          <input type="text" id="baseline" value="60" />
+          <div class="hint">Extra time for out-of-transit baseline</div>
+        </div>
+        <div>
+          <label>Epochs to search</label>
+          <input type="text" id="nEpochs" value="120" />
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-calculate" onclick="calculate()">Calculate Next Transit</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
