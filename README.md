@@ -66,49 +66,6 @@ The app uses the browser build of [`astronomy-engine`](https://github.com/cosine
 - Vanilla JavaScript
 - [`astronomy-engine`](https://www.npmjs.com/package/astronomy-engine) loaded from CDN
 
-## Run Locally
-
-Because this is a static site, you can run it with any simple local server.
-
-### Option 1: Open directly
-
-Open `index.html` in your browser.
-
-### Option 2: Use a local server
-
-If you have Python installed:
-
-```bash
-python -m http.server 8000
-```
-
-Then open:
-
-```text
-http://localhost:8000
-```
-
-## Project Structure
-
-```text
-.
-|-- index.html   # App layout and input form
-|-- style.css    # Visual styling
-|-- script.js    # Transit calculations and rendering logic
-|-- favicon.svg
-`-- CNAME        # Custom domain for GitHub Pages
-```
-
-## Deployment
-
-This repository is structured for static hosting and can be deployed easily with:
-
-- GitHub Pages
-- Netlify
-- Vercel static hosting
-- Any standard web server
-
-The included `CNAME` file suggests the site is intended for GitHub Pages with a custom domain.
 
 ## Limitations
 
@@ -118,13 +75,6 @@ The included `CNAME` file suggests the site is intended for GitHub Pages with a 
 - The timezone list is currently limited to a small set of common options plus UTC.
 - This is intended as a practical planning tool and should be cross-checked for precision-critical observations.
 
-## Future Improvements
-
-- Full baseline-window observability checks
-- Custom timezone input or automatic timezone detection for all locations
-- Support for loading targets from exoplanet catalogs
-- Export results as CSV or calendar events
-- Better mobile layout and input presets
 
 ## Live Site
 
@@ -134,6 +84,4 @@ Custom domain:
 https://exo.sahilnetwork.cc
 ```
 
-## License
 
-Add a license file if you want others to reuse or contribute to this project more easily.
