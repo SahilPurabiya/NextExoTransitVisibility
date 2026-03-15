@@ -84,3 +84,52 @@ input:focus, select:focus { outline: none; border-color: #58a6ff; }
 .success { color: #3fb950; }
 .loading { color: #d29922; }
 .hint { color: #6e7681; font-size: 0.75rem; margin-top: 0.15rem; }
+
+/* ── Mobile optimizations ── */
+@media (max-width: 600px) {
+  body { padding: 1rem 0.75rem; }
+  h1 { font-size: 1.3rem; }
+  h2 { font-size: 1.05rem; margin: 1.25rem 0 0.6rem; }
+  .subtitle { font-size: 0.82rem; margin-bottom: 1rem; }
+
+  .card { padding: 1rem; }
+
+  /* Larger tap targets for inputs */
+  input, select {
+    padding: 0.65rem 0.75rem;
+    font-size: 1rem;
+  }
+
+  /* Full-width buttons */
+  .btn { width: 100%; justify-content: center; }
+  .btn-calculate { font-size: 1rem; padding: 0.85rem; }
+
+  /* Horizontally scroll phase table */
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -1rem; padding: 0 1rem; }
+  .phase-table { font-size: 0.78rem; min-width: 480px; }
+  .phase-table th, .phase-table td { padding: 0.4rem 0.35rem; white-space: nowrap; }
+
+  /* Stack result rows vertically */
+  .result-row { flex-direction: column; gap: 0.15rem; }
+  .result-value { font-size: 0.85rem; }
+
+  /* Skipped section */
+  .skipped-item { font-size: 0.72rem; word-break: break-word; }
+
+  /* Results card padding */
+  #result { padding: 1rem; margin-top: 1rem; }
+}
+
+/* Prevent iOS zoom on input focus (font-size >= 16px) */
+@media (max-width: 600px) and (hover: none) {
+  input, select { font-size: 16px; }
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: env(safe-area-inset-bottom)) {
+  body {
+    padding-left: max(env(safe-area-inset-left), 0.75rem);
+    padding-right: max(env(safe-area-inset-right), 0.75rem);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

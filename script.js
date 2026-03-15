@@ -378,7 +378,7 @@ function runCalculation() {
     html += row("Moon separation", `${moonSep.toFixed(1)}°`);
 
     // Phase table
-    html += `<table class="phase-table"><tr><th>Phase</th><th>Time (${tzName})</th><th>Alt</th><th>Az</th><th>HA</th><th>Sun</th></tr>`;
+    html += `<div class="table-wrap"><table class="phase-table"><tr><th>Phase</th><th>Time (${tzName})</th><th>Alt</th><th>Az</th><th>HA</th><th>Sun</th></tr>`;
     for (const ph of phases) {
       const cls = ph.label === "Mid-Transit" ? ' class="highlight"' : "";
       html += `<tr>`;
@@ -390,7 +390,7 @@ function runCalculation() {
       html += `<td>${ph.sunAlt.toFixed(1)}°</td>`;
       html += `</tr>`;
     }
-    html += `</table>`;
+    html += `</table></div>`;
     html += `</div>`;
   });
 
